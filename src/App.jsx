@@ -9,15 +9,15 @@ export default function App() {
     <>
       <div>
         <label htmlFor="cookie">Cookie: </label>
-        <input name="cookie" value={cookies.cookie} onChange={(e) => {
+        <input name="cookie" value={cookies.cookie || ""} onChange={(e) => {
           setCookie('cookie', e.target.value, { path: '/' });
         }}  />
       </div>
       <div>
         <label htmlFor="cookie">Cookie com data de expiração: </label>
-        <input name="cookie_with_expiration_date" value={cookies.cookie_with_expiration_date} onChange={(e) => {
+        <input name="cookie_with_expiration_date" value={cookies.cookie_with_expiration_date || ""} onChange={(e) => {
           const date = new Date();
-          const msec = 1000 * 30; 
+          const msec = 1000 * 5; 
           date.setTime(date.getTime() + msec);
           setCookie('cookie_with_expiration_date', e.target.value, { path: '/', expires: date });
         }}  />
